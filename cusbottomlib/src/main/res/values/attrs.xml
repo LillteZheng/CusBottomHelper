@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CusBottomItem">
+        <attr name="cus_normal_pic" format="reference"/>
+        <attr name="cus_selected_pic" format="reference"/>
+        <attr name="cus_normal_text_color" format="reference|color"/>
+        <attr name="cus_selected_text_coclor" format="color|reference"/>
+        <attr name="cus_text" format="reference|string"/>
+        <attr name="cus_text_size" format="dimension"/>
+        <attr name="cus_image_size" format="dimension"/>
+        <attr name="cus_image_margin_top" format="dimension"/>
+        <attr name="cus_text_margin_top" format="dimension"/>
+    </declare-styleable>
+</resources>
