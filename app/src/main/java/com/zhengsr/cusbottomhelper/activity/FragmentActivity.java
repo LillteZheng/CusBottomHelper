@@ -21,10 +21,8 @@ public class FragmentActivity extends AppCompatActivity implements IBottomClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-        CusBottomLayout layout = (CusBottomLayout)findViewById(R.id.bottom_ly);
+        CusBottomLayout layout = findViewById(R.id.bottom_ly);
         layout.setBottomClickListener(this);
-
-
         mHomeFragment = TestFragment.getInstance("首页");
 
         getSupportFragmentManager().beginTransaction().add(R.id.cus_content_ly,mHomeFragment).commit();
