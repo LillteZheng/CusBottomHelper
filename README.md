@@ -1,9 +1,9 @@
 
 
 ## 效果图：
-![image](https://github.com/LillteZheng/ViewPagerHelper/raw/master/gif/cus_fragment.gif)
+![image](https://github.com/LillteZheng/CusBottomHelper/raw/master/gif/cus_fragment.gif)
 
-![image](https://github.com/LillteZheng/ViewPagerHelper/raw/master/gif/cus_viewpager.gif)
+![image](https://github.com/LillteZheng/CusBottomHelper/raw/master/gif/cus_viewpager.gif)
 
 ## 使用
 在你的工程上添加：
