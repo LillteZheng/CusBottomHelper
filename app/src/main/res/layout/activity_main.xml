@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:clipChildren="false"
+    android:background="#cde1e1"
     tools:context="com.zhengsr.cusbottomhelper.MainActivity">
 
     <Button
@@ -30,15 +31,19 @@
         android:layout_marginTop="20dp"
         android:gravity="bottom"
         android:background="@android:color/white"
+        android:clipChildren="false"
         android:orientation="vertical">
 
-
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="发现"
+        <com.zhengsr.cusbottomlib.view.CusBottomClipView
+            android:layout_width="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/shape_bg"/>
+            app:clip_text="测试啊"
+            app:clip_text_color="#25ca5f"
+            app:clip_text_size="16sp"
+            app:clip_text_margin_top="2dp"
+            app:clip_image_size="35dp"
+            app:clip_drawable="@drawable/shape_bg"
+            android:layout_height="70dp"/>
     </LinearLayout>
 
 </LinearLayout>

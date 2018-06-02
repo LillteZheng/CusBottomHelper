@@ -33,7 +33,6 @@ public class CusBottomLayout extends LinearLayout {
         setOrientation(HORIZONTAL);
         setGravity(Gravity.CENTER_HORIZONTAL);
         setClipChildren(false);
-
     }
 
     @Override

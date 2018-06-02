@@ -43,6 +43,7 @@ public class CusBottomItem extends LinearLayout {
     public CusBottomItem(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         removeAllViews();
+        setClipChildren(false);
         View view = LayoutInflater.from(context).inflate(R.layout.cus_bottom_item_layout,this,false);
 
         TypedArray ta = context.obtainStyledAttributes(attrs,R.styleable.CusBottomItem);

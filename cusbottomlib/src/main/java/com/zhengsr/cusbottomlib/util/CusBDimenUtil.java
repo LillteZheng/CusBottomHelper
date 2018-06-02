@@ -6,7 +6,7 @@ import android.content.Context;
  * Created by zhengshaorui on 2018/5/1.
  */
 
-public class DimenUtil {
+public class CusBDimenUtil {
 
     /**
      * 将sp值转换为px值，保证文字大小不变

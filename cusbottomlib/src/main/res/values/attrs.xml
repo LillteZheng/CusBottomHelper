@@ -11,4 +11,13 @@
         <attr name="cus_image_margin_top" format="dimension"/>
         <attr name="cus_text_margin_top" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="CusBottomClipView">
+        <attr name="clip_text" format="reference|string"/>
+        <attr name="clip_text_size" format="dimension"/>
+        <attr name="clip_text_color" format="reference|color"/>
+        <attr name="clip_text_margin_top" format="dimension"/>
+        <attr name="clip_image_size" format="dimension"/>
+        <attr name="clip_drawable" format="reference"/>
+    </declare-styleable>
 </resources>
