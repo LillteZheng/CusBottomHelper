@@ -4,46 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:clipChildren="false"
     android:background="#cde1e1"
+    android:clipChildren="false"
+    android:orientation="vertical"
     tools:context="com.zhengsr.cusbottomhelper.MainActivity">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="使用fragment"
-        android:onClick="onfragment"/>
+        android:onClick="onfragment"
+        android:text="使用fragment" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="使用fragment"
-        android:onClick="onviewpager"/>
+        android:onClick="onviewpager"
+        android:text="使用fragment" />
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:gravity="bottom"
-        android:background="@android:color/white"
-        android:clipChildren="false"
-        android:orientation="vertical">
 
-        <com.zhengsr.cusbottomlib.view.CusBottomClipView
-            android:layout_width="wrap_content"
-            android:layout_gravity="center_horizontal"
-            app:clip_text="测试啊"
-            app:clip_text_color="#25ca5f"
-            app:clip_text_size="16sp"
-            app:clip_text_margin_top="2dp"
-            app:clip_image_size="35dp"
-            app:clip_drawable="@drawable/shape_bg"
-            android:layout_height="70dp"/>
-    </LinearLayout>
+
+
+
 
 </LinearLayout>

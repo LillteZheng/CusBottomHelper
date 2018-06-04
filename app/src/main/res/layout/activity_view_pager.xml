@@ -25,7 +25,7 @@
             >
 
 
-            <com.zhengsr.cusbottomlib.view.CusBottomItem
+            <com.zhengsr.cusbottomlib.view.CusBottomItemView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -39,7 +39,7 @@
                 app:cus_text_margin_top="2dp"
                 app:cus_text_size="11sp" />
 
-            <com.zhengsr.cusbottomlib.view.CusBottomItem
+            <com.zhengsr.cusbottomlib.view.CusBottomItemView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -53,7 +53,7 @@
                 app:cus_text_margin_top="2dp"
                 app:cus_text_size="11sp" />
 
-            <com.zhengsr.cusbottomlib.view.CusBottomItem
+            <com.zhengsr.cusbottomlib.view.CusBottomItemView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -67,7 +67,7 @@
                 app:cus_text_margin_top="2dp"
                 app:cus_text_size="11sp" />
 
-            <com.zhengsr.cusbottomlib.view.CusBottomItem
+            <com.zhengsr.cusbottomlib.view.CusBottomItemView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

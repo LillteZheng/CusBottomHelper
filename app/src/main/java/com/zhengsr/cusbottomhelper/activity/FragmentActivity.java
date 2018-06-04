@@ -18,6 +18,7 @@ public class FragmentActivity extends AppCompatActivity implements IBottomClickL
 
     private TestFragment mHomeFragment;
     private TestFragment mPersonFragment;
+    private TestFragment mGiftFragment;
     private TestFragment mFindFragment;
     private TestFragment mSortFragment;
 
@@ -32,15 +33,17 @@ public class FragmentActivity extends AppCompatActivity implements IBottomClickL
         layout.setBottomClickListener(this);
         mHomeFragment = TestFragment.getInstance("首页");
         mPersonFragment = TestFragment.getInstance("通讯录");
+        mGiftFragment = TestFragment.getInstance("活动");
         mFindFragment = TestFragment.getInstance("发现");
         mSortFragment = TestFragment.getInstance("分类");
 
-        mCusBFragmentUtil = CusBFragmentUtil.create(getSupportFragmentManager(), R.id.cus_content_ly);
-
+        //实例 CusBFragmentUtil,主要是 fragmentManager和 framelayout的id
+        mCusBFragmentUtil = CusBFragmentUtil.create(getSupportFragmentManager(), R.id.content_ly);
+        //配置第一个fragment
         mCusBFragmentUtil.loadRootFragment(mHomeFragment);
-
         mFragments.add(mHomeFragment);
         mFragments.add(mPersonFragment);
+        mFragments.add(mGiftFragment);
         mFragments.add(mFindFragment);
         mFragments.add(mSortFragment);
     }
@@ -56,9 +59,12 @@ public class FragmentActivity extends AppCompatActivity implements IBottomClickL
                 mCusBFragmentUtil.addOrShowFragment(mPersonFragment);
                 break;
             case 2:
-                mCusBFragmentUtil.addOrShowFragment(mFindFragment);
+                mCusBFragmentUtil.addOrShowFragment(mGiftFragment);
                 break;
             case 3:
+                mCusBFragmentUtil.addOrShowFragment(mFindFragment);
+                break;
+            case 4:
                 mCusBFragmentUtil.addOrShowFragment(mSortFragment);
                 break;
             default:

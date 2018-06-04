@@ -28,4 +28,6 @@ public class MainActivity extends AppCompatActivity  {
     public void onviewpager(View view) {
         startActivity(new Intent(this,ViewPagerActivity.class));
     }
+
+
 }
