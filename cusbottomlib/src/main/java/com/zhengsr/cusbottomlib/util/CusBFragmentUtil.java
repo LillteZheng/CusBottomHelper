@@ -4,6 +4,7 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 
 import java.util.List;
 
@@ -44,14 +45,19 @@ public class CusBFragmentUtil {
 
     /**
      * 隐藏所有的fragment
-     * @param fragments
      */
-    public void hideAllFragment(List<Fragment> fragments){
-        FragmentTransaction ft =  mFragmentManager.beginTransaction();
+    public void hideAllFragment(){
+        List<Fragment> fragments = mFragmentManager.getFragments();
         for (Fragment fragment : fragments) {
-            ft.hide(fragment);
+            if (fragment != null){
+                Log.d(TAG, "zsr --> hideAllFragment: "+fragment);
+                FragmentTransaction ft =  mFragmentManager.beginTransaction();
+                ft.hide(fragment);
+                ft.commit();
+            }
+
         }
-        ft.commit();
+
     }
 
     /**
@@ -59,17 +65,16 @@ public class CusBFragmentUtil {
      * @param fragment
      */
     public void addOrShowFragment(Fragment fragment){
-        FragmentTransaction ft =  mFragmentManager.beginTransaction();
-        if (fragment == null){
-            ft.add(mContentId,fragment);
-        }else{
+        if (fragment != null){
+            FragmentTransaction ft =  mFragmentManager.beginTransaction();
             if (!fragment.isAdded()){
                 ft.add(mContentId,fragment);
             }
             ft.show(fragment);
-
+            ft.commit();
         }
-        ft.commit();
+
+
     }
 
     /**
@@ -78,16 +83,15 @@ public class CusBFragmentUtil {
      * @param tag
      */
     public  void addOrShowFragment(Fragment fragment,String tag){
-        FragmentTransaction ft =  mFragmentManager.beginTransaction();
-        if (fragment == null){
-            ft.add(mContentId,fragment,tag);
-        }else{
+        if (fragment != null){
+            FragmentTransaction ft =  mFragmentManager.beginTransaction();
             if (!fragment.isAdded()){
-                ft.add(mContentId,fragment);
+                ft.add(mContentId,fragment,tag);
             }
             ft.show(fragment);
+            ft.commit();
         }
-        ft.commit();
+
     }
 
     /**
@@ -95,7 +99,9 @@ public class CusBFragmentUtil {
      * @param fragment
      */
     public void removeFragment(Fragment fragment){
-        mFragmentManager.beginTransaction().remove(fragment).commit();
+        if (fragment != null) {
+            mFragmentManager.beginTransaction().remove(fragment).commit();
+        }
     }
 
     /**
@@ -103,7 +109,9 @@ public class CusBFragmentUtil {
      * @param fragment
      */
     public void replaceFragment(Fragment fragment){
-        mFragmentManager.beginTransaction().replace(mContentId,fragment).commit();
+        if (fragment != null) {
+            mFragmentManager.beginTransaction().replace(mContentId, fragment).commit();
+        }
     }
 
     /**
@@ -112,6 +120,8 @@ public class CusBFragmentUtil {
      * @param tag
      */
     public void replaceFragment(Fragment fragment,String tag){
-        mFragmentManager.beginTransaction().replace(mContentId,fragment,tag).commit();
+        if (fragment != null) {
+            mFragmentManager.beginTransaction().replace(mContentId, fragment, tag).commit();
+        }
     }
 }

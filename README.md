@@ -1,9 +1,10 @@
 
 
 ## 效果图：
-![image](https://user-gold-cdn.xitu.io/2018/6/4/163cb1d02115b2ca?w=329&h=595&f=gif&s=87515)
+![image](https://github.com/LillteZheng/CusBottomHelper/raw/master/gif/cus_fragment.gif)
 
-![image](https://user-gold-cdn.xitu.io/2018/6/4/163cb1d020f011c6?w=324&h=567&f=gif&s=120947)
+![image](https://github.com/LillteZheng/CusBottomHelper/raw/master/gif/cus_viewpager.gif)
+
 
 ## 使用
 在你的工程上添加：
@@ -18,7 +19,7 @@ allprojects {
 
 在你需要的地方添加：
 ```
-implementation 'com.github.LillteZheng:CusBottomHelper:v0.2'
+implementation 'com.github.LillteZheng:CusBottomHelper:v0.3'
 ```
 
 ## XML 配置
@@ -88,29 +89,46 @@ mCusBFragmentUtil.loadRootFragment(mHomeFragment);
 然后上面，我们就可以这样写啦：
 ```
 @Override
-    public void onClick(View view, int position) {
-        mCusBFragmentUtil.hideAllFragment(mFragments);
-        switch (position){
-            case 0:
-                mCusBFragmentUtil.addOrShowFragment(mHomeFragment);
-                break;
-            case 1:
-                mCusBFragmentUtil.addOrShowFragment(mPersonFragment);
-                break;
-            case 2:
-                mCusBFragmentUtil.addOrShowFragment(mGiftFragment);
-                break;
-            case 3:
-                mCusBFragmentUtil.addOrShowFragment(mFindFragment);
-                break;
-            case 4:
-                mCusBFragmentUtil.addOrShowFragment(mSortFragment);
-                break;
-            default:
-                break;
-        }
+public void onClick(View view, int position) {
+    //切换之前，隐藏其他fragment
+    mCusBFragmentUtil.hideAllFragment();
+    switch (position){
+        case 0:
+            if (mHomeFragment == null){
+                mHomeFragment = TestFragment.getInstance("首页");
 
+            }
+            mCusBFragmentUtil.addOrShowFragment(mHomeFragment);
+            break;
+        case 1:
+            if (mSortFragment == null){
+                mPersonFragment = TestFragment.getInstance("通讯录");
+            }
+            mCusBFragmentUtil.addOrShowFragment(mPersonFragment);
+            break;
+        case 2:
+            if (mGiftFragment == null){
+                mGiftFragment = TestFragment.getInstance("活动");
+            }
+            mCusBFragmentUtil.addOrShowFragment(mGiftFragment);
+            break;
+        case 3:
+            if (mFindFragment == null){
+                mFindFragment = TestFragment.getInstance("发现");
+            }
+            mCusBFragmentUtil.addOrShowFragment(mFindFragment);
+            break;
+        case 4:
+            if (mSortFragment == null){
+                mSortFragment = TestFragment.getInstance("分类");
+            }
+            mCusBFragmentUtil.addOrShowFragment(mSortFragment);
+            break;
+        default:
+            break;
     }
+
+}
 ```
 
 
