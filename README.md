@@ -1,9 +1,10 @@
 
 
 ## 效果图：
-![image](https://user-gold-cdn.xitu.io/2018/6/4/163cb1d02115b2ca?w=329&h=595&f=gif&s=87515)
+![image](https://github.com/LillteZheng/CusBottomHelper/raw/master/gif/cus_fragment.gif)
 
-![image](https://user-gold-cdn.xitu.io/2018/6/4/163cb1d020f011c6?w=324&h=567&f=gif&s=120947)
+![image](https://github.com/LillteZheng/CusBottomHelper/raw/master/gif/cus_viewpager.gif)
+
 
 ## 使用
 在你的工程上添加：
