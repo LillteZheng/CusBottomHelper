@@ -35,33 +35,34 @@ implementation 'com.github.LillteZheng:CusBottomHelper:v0.3'
         android:layout_height="45dp"
         >
 
-        <com.zhengsr.cusbottomlib.view.CusBottomItem
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:cus_image_margin_top="4dp"
-            app:cus_image_size="25dp"
-            app:cus_normal_pic="@mipmap/home"
-            app:cus_selected_pic="@mipmap/home_focus"
-            app:cus_normal_text_color="#8a8a8a"
-            app:cus_selected_text_coclor="#1296db"
-            app:cus_text="首页"
-            app:cus_text_margin_top="2dp"
-            app:cus_text_size="11sp" />
+           <com.zhengsr.cusbottomlib.view.CusBottomItemView
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               app:cus_image_margin_top="4dp"
+               app:cus_image_size="25dp"
+               app:cus_img="@mipmap/home"
+               app:cus_normal_text_color="#8a8a8a"
+               app:cus_selected_text_coclor="#1296db"
+               app:cus_text="首页"
+               app:cus_isChoose="true"
+               app:cus_text_margin_top="2dp"
+               app:cus_text_size="11sp" />
 
-        <!--这个用来配置底部突出的view，高度要高于父布局-->
-        <com.zhengsr.cusbottomlib.view.CusBottomItemView
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            app:cus_image_size="45dp"
-            app:cus_normal_pic="@drawable/shape_bg"
-            app:cus_normal_text_color="#8a8a8a"
-            app:cus_selected_text_coclor="#1296db"
-            app:cus_no_background="true"
-            app:cus_text="活动"
-            app:cus_text_margin_top="2dp"
-            app:cus_text_size="11sp" />
+
+           <com.zhengsr.cusbottomlib.view.CusBottomItemView
+               android:layout_width="0dp"
+               android:layout_height="60dp"
+               android:layout_weight="1"
+               app:cus_image_size="45dp"
+               app:cus_img="@drawable/shape_bg"
+               app:cus_normal_text_color="#8a8a8a"
+               app:cus_selected_text_coclor="#1296db"
+               app:cus_no_background="true"
+               app:cus_text="活动"
+               app:cus_text_margin_top="2dp"
+               app:cus_not_change_img="true"
+               app:cus_text_size="11sp" />
         ....
     </com.zhengsr.cusbottomlib.view.CusBottomLayout>
 
@@ -86,7 +87,7 @@ mCusBFragmentUtil = CusBFragmentUtil.create(getSupportFragmentManager(), R.id.co
 //配置第一个fragment
 mCusBFragmentUtil.loadRootFragment(mHomeFragment);
 ```
-然后上面，我们就可以这样写啦：
+然后上面，我们就可以这样写：
 ```
 @Override
 public void onClick(View view, int position) {
