@@ -48,7 +48,6 @@ public class CusBottomLayout extends LinearLayout {
                 contentView.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.d(TAG, "zsr --> onClick: " + finalId);
                         resetAndSelet(finalId);
                         if (mIBottomClickListener != null) {
                             mIBottomClickListener.onClick(v, finalId);
@@ -71,23 +70,14 @@ public class CusBottomLayout extends LinearLayout {
         int count = getChildCount();
 
         for (int i = 0; i < count; i++) {
-            View view = getChildAt(i);
-            if (view instanceof CusBottomItemView) {
-                ImageView imageView = view.findViewById(R.id.cus_item_iv);
-                TextView textView = view.findViewById(R.id.cus_item_tv);
+            CusBottomItemView view = (CusBottomItemView) getChildAt(i);
+            view.setItemStatus(false);
 
-                imageView.setSelected(false);
-                textView.setSelected(false);
-            }
         }
 
 
-        View view = getChildAt(position);
-        ImageView imageView = view.findViewById(R.id.cus_item_iv);
-        TextView textView = view.findViewById(R.id.cus_item_tv);
-
-        imageView.setSelected(true);
-        textView.setSelected(true);
+        CusBottomItemView view = (CusBottomItemView) getChildAt(position);
+        view.setItemStatus(true);
     }
 
     public void addViewPager(ViewPager viewPager){

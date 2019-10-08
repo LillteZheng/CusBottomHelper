@@ -3,6 +3,7 @@ package com.zhengsr.cusbottomlib.view;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
@@ -26,6 +27,11 @@ import com.zhengsr.cusbottomlib.R;
 
 public class CusBottomItemView extends LinearLayout {
     private static final String TAG = "CusBottomItem";
+    private ImageView mImageView;
+    private TextView mTextView;
+    private int mNormalColor;
+    private int mChooseColor;
+    private boolean isNotChangeImg;
 
     public CusBottomItemView(Context context) {
         this(context,null);
@@ -43,10 +49,8 @@ public class CusBottomItemView extends LinearLayout {
         View view = LayoutInflater.from(context).inflate(R.layout.cus_bottom_item_layout,this,false);
         //自定义view属性
         TypedArray ta = context.obtainStyledAttributes(attrs,R.styleable.CusBottomItemView);
-        int ivnormalResid = ta.getResourceId(R.styleable.CusBottomItemView_cus_normal_pic,-1);
-        int ivfocusPicResid = ta.getResourceId(R.styleable.CusBottomItemView_cus_selected_pic,-1);
-        int tvNormalColor = ta.getColor(R.styleable.CusBottomItemView_cus_normal_text_color,-1);
-        int tvSelectColor = ta.getColor(R.styleable.CusBottomItemView_cus_selected_text_coclor,-1);
+        mNormalColor = ta.getColor(R.styleable.CusBottomItemView_cus_normal_text_color,-1);
+        mChooseColor = ta.getColor(R.styleable.CusBottomItemView_cus_selected_text_coclor,-1);
         String itemtext  = ta.getString(R.styleable.CusBottomItemView_cus_text);
         int textsize = ta.getDimensionPixelSize(R.styleable.CusBottomItemView_cus_text_size,12);
         int picSize = ta.getDimensionPixelSize(R.styleable.CusBottomItemView_cus_image_size,20);
@@ -56,63 +60,38 @@ public class CusBottomItemView extends LinearLayout {
         if (isNoBakcground){
             view.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         }
+        int resId = ta.getResourceId(R.styleable.CusBottomItemView_cus_img,-1);
+        boolean isChoose = ta.getBoolean(R.styleable.CusBottomItemView_cus_isChoose,false);
+        isNotChangeImg =  ta.getBoolean(R.styleable.CusBottomItemView_cus_not_change_img,false);
         ta.recycle();
 
 
         /**
          * 配置View
          */
-        FrameLayout frameLayout = view.findViewById(R.id.cus_item_content);
-        ImageView imageView = view.findViewById(R.id.cus_item_iv);
-        TextView textView = view.findViewById(R.id.cus_item_tv);
-        setImageStatus(imageView,ivnormalResid,ivfocusPicResid);
-        setTextStatus(textView,tvNormalColor,tvSelectColor);
-
-        textView.setText(itemtext);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,textsize);
+        mImageView = view.findViewById(R.id.cus_item_iv);
+        mImageView.setImageResource(resId);
+        mTextView = view.findViewById(R.id.cus_item_tv);
+        mTextView.setText(itemtext);
+        mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX,textsize);
         addView(view);
 
         /**
          * 配置View的参数
          */
-        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) imageView.getLayoutParams();
+        ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) mImageView.getLayoutParams();
         params.width = picSize;
         params.height = picSize;
-        imageView.setLayoutParams(params);
+        mImageView.setLayoutParams(params);
 
         //父布局，然后改子空间的 margin
-        setMargins(frameLayout,0,picmargintop,0,0);
-        setMargins(textView,0,textmargintop,0,0);
+        setMargins(mImageView,0,picmargintop,0,0);
+        setMargins(mTextView,0,textmargintop,0,0);
 
-
-    }
-
-
-    /**
-     * 设置图片的选择状态
-     * @param view
-     * @param normalres
-     * @param selectres
-     */
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    private void setImageStatus(ImageView view, int normalres, int selectres) {
-        StateListDrawable stateListDrawable = new StateListDrawable();
-        if (normalres != -1 && selectres != -1) {
-            Drawable select = getContext().getResources().getDrawable(selectres);
-            Drawable normal = getContext().getResources().getDrawable(normalres);
-            stateListDrawable.addState(new int[]{android.R.attr.state_selected}, select);
-            //负号代表 false
-            stateListDrawable.addState(new int[]{-android.R.attr.state_selected}, normal);
-
-            view.setBackground(stateListDrawable);
-        }else if (normalres != -1){
-            view.setBackgroundResource(normalres);
-        }else{
-            throw new IllegalStateException("you should set cus_normal_pic and cus_selected_pic " +
-                    "in your root layout");
-        }
+        setItemStatus(isChoose);
 
     }
+
 
     /**
      * 设置文字状态
@@ -141,8 +120,25 @@ public class CusBottomItemView extends LinearLayout {
         if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
             p.setMargins(l, t, r, b);
-            v.requestLayout();
+            v.setLayoutParams(p);
         }
     }
 
+    public void setItemStatus(boolean isChoose){
+        if (isChoose) {
+            mTextView.setTextColor(mChooseColor);
+            //取两层叠加
+            if (!isNotChangeImg) {
+                mImageView.clearColorFilter();
+                mImageView.setColorFilter(mChooseColor);
+            }
+        } else {
+            mTextView.setTextColor(mNormalColor);
+            //取两层叠加
+            if (!isNotChangeImg) {
+                mImageView.clearColorFilter();
+                mImageView.setColorFilter(mNormalColor);
+            }
+        }
+    }
 }
