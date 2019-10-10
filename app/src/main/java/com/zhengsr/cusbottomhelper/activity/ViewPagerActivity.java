@@ -44,10 +44,11 @@ public class ViewPagerActivity extends AppCompatActivity implements IBottomClick
         mCusBottomLayout.addViewPager(mViewPager);
     }
 
-    @Override
-    public void onClick(View view, int position) {
-        mViewPager.setCurrentItem(position);
 
+
+    @Override
+    public void onBottomClick(View view, int curPosition, int prePosition) {
+        mViewPager.setCurrentItem(curPosition);
     }
 
 

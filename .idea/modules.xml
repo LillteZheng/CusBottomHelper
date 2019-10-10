@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CusBottomHelper.iml" filepath="$PROJECT_DIR$/.idea/CusBottomHelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/CusBottomHelper.iml" filepath="$PROJECT_DIR$/CusBottomHelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cusbottomlib/cusbottomlib.iml" filepath="$PROJECT_DIR$/cusbottomlib/cusbottomlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/cusbottomlib/cusbottomlib.iml" filepath="$PROJECT_DIR$/cusbottomlib/cusbottomlib.iml" />
     </modules>
   </component>

@@ -48,6 +48,7 @@
             app:cus_normal_text_color="#8a8a8a"
             app:cus_selected_text_coclor="#1296db"
             app:cus_text="通讯录"
+            app:cus_isChoose="false"
             app:cus_text_margin_top="2dp"
             app:cus_text_size="11sp" />
 

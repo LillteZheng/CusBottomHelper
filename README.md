@@ -19,7 +19,7 @@ allprojects {
 
 在你需要的地方添加：
 ```
-implementation 'com.github.LillteZheng:CusBottomHelper:v0.3'
+implementation 'com.github.LillteZheng:CusBottomHelper:v0.5'
 ```
 
 ## XML 配置

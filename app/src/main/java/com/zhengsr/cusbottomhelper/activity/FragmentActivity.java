@@ -1,7 +1,9 @@
 package com.zhengsr.cusbottomhelper.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.zhengsr.cusbottomhelper.R;
@@ -11,7 +13,7 @@ import com.zhengsr.cusbottomlib.util.CusBFragmentUtil;
 import com.zhengsr.cusbottomlib.view.CusBottomLayout;
 
 public class FragmentActivity extends AppCompatActivity implements IBottomClickListener {
-
+    private static final String TAG = "FragmentActivity";
     private TestFragment mHomeFragment;
     private TestFragment mPersonFragment;
     private TestFragment mGiftFragment;
@@ -32,14 +34,20 @@ public class FragmentActivity extends AppCompatActivity implements IBottomClickL
         //实例 CusBFragmentUtil,主要是 fragmentManager和 framelayout的id
         mCusBFragmentUtil = CusBFragmentUtil.create(getSupportFragmentManager(), R.id.content_ly);
         //配置第一个fragment
-        mCusBFragmentUtil.loadRootFragment(mHomeFragment);
+        if (savedInstanceState == null){
+            mCusBFragmentUtil.loadRootFragment(mHomeFragment);
+        }
 
     }
 
+
+
+
+
     @Override
-    public void onClick(View view, int position) {
+    public void onBottomClick(View view, int curPosition, int prePosition) {
         mCusBFragmentUtil.hideAllFragment();
-        switch (position){
+        switch (curPosition){
             case 0:
                 if (mHomeFragment == null){
                     mHomeFragment = TestFragment.getInstance("首页");
@@ -74,8 +82,5 @@ public class FragmentActivity extends AppCompatActivity implements IBottomClickL
             default:
                 break;
         }
-
     }
-
-
 }

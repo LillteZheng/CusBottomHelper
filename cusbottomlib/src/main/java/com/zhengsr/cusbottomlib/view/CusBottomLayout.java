@@ -1,6 +1,8 @@
 package com.zhengsr.cusbottomlib.view;
 
 import android.content.Context;
+import android.os.Parcelable;
+import android.support.annotation.MenuRes;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.zhengsr.cusbottomlib.IBottomClickListener;
 import com.zhengsr.cusbottomlib.R;
+import com.zhengsr.cusbottomlib.SavedState;
 
 /**
  * Created by zhengshaorui on 2018/5/1.
@@ -21,6 +24,7 @@ import com.zhengsr.cusbottomlib.R;
 public class CusBottomLayout extends LinearLayout {
     private static final String TAG = "CusBottomLayout";
     private IBottomClickListener mIBottomClickListener;
+    private  int mPreIndex;
     public CusBottomLayout(Context context) {
         this(context,null);
     }
@@ -38,7 +42,8 @@ public class CusBottomLayout extends LinearLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        resetAndSelet(0);
+        //默认不要选中第一个
+      //  resetAndSelet(0);
         int count = getChildCount();
         for (int i = 0; i < count; i++) {
             View view = getChildAt(i);
@@ -50,7 +55,8 @@ public class CusBottomLayout extends LinearLayout {
                     public void onClick(View v) {
                         resetAndSelet(finalId);
                         if (mIBottomClickListener != null) {
-                            mIBottomClickListener.onClick(v, finalId);
+                            mIBottomClickListener.onBottomClick(v, finalId,mPreIndex);
+                            mPreIndex = finalId;
                         }
                     }
                 });
@@ -63,10 +69,29 @@ public class CusBottomLayout extends LinearLayout {
         mIBottomClickListener = listener;
     }
 
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        SavedState ss = (SavedState) state;
+        super.onRestoreInstanceState(state);
+        mPreIndex = ss.preIndex;
+        resetAndSelet(mPreIndex);
+    }
+
+    @Nullable
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Parcelable parcelable = super.onSaveInstanceState();
+        SavedState ss = new SavedState(parcelable);
+        ss.preIndex = mPreIndex;
+        return ss;
+
+    }
+
     /**
      * 先还原，再选中
      */
-    private void resetAndSelet(int position){
+    public void resetAndSelet(int position){
         int count = getChildCount();
 
         for (int i = 0; i < count; i++) {
@@ -74,8 +99,6 @@ public class CusBottomLayout extends LinearLayout {
             view.setItemStatus(false);
 
         }
-
-
         CusBottomItemView view = (CusBottomItemView) getChildAt(position);
         view.setItemStatus(true);
     }

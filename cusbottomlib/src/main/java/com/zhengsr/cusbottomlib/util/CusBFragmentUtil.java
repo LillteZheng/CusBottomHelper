@@ -50,7 +50,6 @@ public class CusBFragmentUtil {
         List<Fragment> fragments = mFragmentManager.getFragments();
         for (Fragment fragment : fragments) {
             if (fragment != null){
-                Log.d(TAG, "zsr --> hideAllFragment: "+fragment);
                 FragmentTransaction ft =  mFragmentManager.beginTransaction();
                 ft.hide(fragment);
                 ft.commit();

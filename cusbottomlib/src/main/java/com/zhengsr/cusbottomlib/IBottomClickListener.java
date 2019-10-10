@@ -7,5 +7,5 @@ import android.view.View;
  */
 
 public interface IBottomClickListener {
-    void onClick(View view,int position);
+    void onBottomClick(View view,int curPosition,int prePosition);
 }
