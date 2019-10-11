@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--当cus_img_normal有数据时，cus_img 无效-->
     <declare-styleable name="CusBottomItemView">
-        <attr name="cus_img" format="reference"/>
+        <attr name="cus_img_normal" format="reference"/>
+        <attr name="cus_img_select" format="reference"/>
         <attr name="cus_normal_text_color" format="reference|color"/>
         <attr name="cus_selected_text_coclor" format="color|reference"/>
         <attr name="cus_text" format="reference|string"/>
@@ -12,5 +14,6 @@
         <attr name="cus_no_background" format="boolean"/>
         <attr name="cus_isChoose" format="boolean"/>
         <attr name="cus_not_change_img" format="boolean"/>
+        <attr name="cus_change_both" format="boolean"/>
     </declare-styleable>
 </resources>

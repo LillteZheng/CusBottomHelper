@@ -31,12 +31,13 @@
                 android:layout_weight="1"
                 app:cus_image_margin_top="4dp"
                 app:cus_image_size="25dp"
-                app:cus_img="@mipmap/home"
+                app:cus_img_normal="@mipmap/home"
                 app:cus_normal_text_color="#8a8a8a"
                 app:cus_selected_text_coclor="#1296db"
                 app:cus_text="首页"
                 app:cus_text_margin_top="2dp"
                 app:cus_isChoose="true"
+                app:cus_change_both="true"
                 app:cus_text_size="11sp" />
 
             <com.zhengsr.cusbottomlib.view.CusBottomItemView
@@ -45,11 +46,12 @@
                 android:layout_weight="1"
                 app:cus_image_margin_top="4dp"
                 app:cus_image_size="25dp"
-                app:cus_img="@mipmap/person"
+                app:cus_img_normal="@mipmap/person"
                 app:cus_normal_text_color="#8a8a8a"
                 app:cus_selected_text_coclor="#1296db"
                 app:cus_text="通讯录"
                 app:cus_text_margin_top="2dp"
+                app:cus_change_both="true"
                 app:cus_text_size="11sp" />
 
             <com.zhengsr.cusbottomlib.view.CusBottomItemView
@@ -58,11 +60,12 @@
                 android:layout_weight="1"
                 app:cus_image_margin_top="4dp"
                 app:cus_image_size="25dp"
-                app:cus_img="@mipmap/find"
+                app:cus_img_normal="@mipmap/find"
                 app:cus_normal_text_color="#8a8a8a"
                 app:cus_selected_text_coclor="#1296db"
                 app:cus_text="发现"
                 app:cus_text_margin_top="2dp"
+                app:cus_change_both="true"
                 app:cus_text_size="11sp" />
 
             <com.zhengsr.cusbottomlib.view.CusBottomItemView
@@ -71,10 +74,11 @@
                 android:layout_weight="1"
                 app:cus_image_margin_top="4dp"
                 app:cus_image_size="25dp"
-                app:cus_img="@mipmap/sort"
+                app:cus_img_normal="@mipmap/sort"
                 app:cus_normal_text_color="#8a8a8a"
                 app:cus_selected_text_coclor="#1296db"
                 app:cus_text="分类"
+                app:cus_change_both="true"
                 app:cus_text_margin_top="2dp"
                 app:cus_text_size="11sp" />
         </com.zhengsr.cusbottomlib.view.CusBottomLayout>

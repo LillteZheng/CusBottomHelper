@@ -96,11 +96,19 @@ public class CusBottomLayout extends LinearLayout {
 
         for (int i = 0; i < count; i++) {
             CusBottomItemView view = (CusBottomItemView) getChildAt(i);
-            view.setItemStatus(false);
+            if (view.isBochChange()) {
+                view.setItemStatus(false);
+            }else{
+                view.setSelect(false);
+            }
 
         }
         CusBottomItemView view = (CusBottomItemView) getChildAt(position);
-        view.setItemStatus(true);
+        if (view.isBochChange()) {
+            view.setItemStatus(true);
+        }else{
+            view.setSelect(true);
+        }
     }
 
     public void addViewPager(ViewPager viewPager){
