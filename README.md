@@ -23,4 +23,6 @@ implementation 'com.github.LillteZheng:CusBottomHelper:v0.6'
 ```
 
 
-
+例子参考:
+[activity](https://github.com/LillteZheng/CusBottomHelper/tree/master/app/src/main/java/com/zhengsr/cusbottomhelper/activity)
+[xml配置](https://github.com/LillteZheng/CusBottomHelper/tree/master/app/src/main/res/layout)
